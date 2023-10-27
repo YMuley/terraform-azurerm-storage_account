@@ -5,7 +5,7 @@ resource "azurerm_storage_account" "storage_account" {
   name                          = each.value.name
   resource_group_name           = var.resource_group_output[each.value.resource_group_name].name
   location                      = each.value.location == null ? var.default_values.location : each.value.location
-  account_tier                  = each.value.account_tier == null ? "Cold" : each.value.account_tier
+  account_tier                  = each.value.account_tier == null ? "Cool" : each.value.account_tier
   enable_https_traffic_only     = each.value.allow_https_only == null ? true : each.value.allow_https_only
   min_tls_version               = each.value.minimum_tls_version == null ? "TLS1_2" : each.value.minimum_tls_version
   shared_access_key_enabled     = each.value.shared_access_key_enabled //has to be false if storage account is access using active directory access
